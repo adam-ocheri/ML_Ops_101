@@ -1,5 +1,11 @@
 # Machine Learning 101
 
+This repository documents the learning process of the **Machine Learning A-Z™: AI, Python & R** Udemy course by _Hadelin de Ponteves_
+
+https://www.udemy.com/course/machinelearning/
+
+All files under the `ML_101_Code_N_Datasets` are the original course material, which are freely available at https://www.superdatascience.com/pages/machine-learning
+
 ## What is Machine Learning
 
 Machine learning is merely the application of advanced statistics operations and formulas on large amounts of data. The result of this operation enables us to make a `prediction`; this prediction can be thought of like a function, which would take similar data as the training data for input, and output the statistically-arrived-at result based on the prediction made, considering all the data the model was trained on.
