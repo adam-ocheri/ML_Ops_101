@@ -6,6 +6,35 @@ https://www.udemy.com/course/machinelearning/
 
 All files under the `ML_101_Code_N_Datasets` are the original course material, which are freely available at https://www.superdatascience.com/pages/machine-learning
 
+**Table Of Contents**
+
+- [What is Machine Learning](#what-is-machine-learning)
+
+- [The Machine Learning Process](#the-machine-learning-process)
+
+  - [A) Data Pre-processing](#a-data-pre-processing)
+    - [1. Import the data](#1-import-the-data)
+    - [2. Clean the data](#2-clean-the-data)
+    - [3. Splitting the data](#3-splitting-the-data)
+  - [B) Modelling](#b-modelling)
+    - [1. Build the model](#1-build-the-model)
+    - [2. Train the model](#2-train-the-model)
+    - [3. Make predictions](#3-make-predictions)
+  - [C) Evaluation](#c-evaluation)
+    - [1. Calculate performance metrics](#1-calculate-performance-metrics)
+    - [2. Make a verdict](#2-make-a-verdict)
+
+- [Basic ML Training Theory](#basic-ml-training-theory)
+
+- [A Word on Data (Analysis)](#a-word-on-data-analysis)
+  - [Feature Selection](#1-feature-selection)
+  - [Domain Expertise](#2-domain-expertise)
+  - [Exploratory Data Analysis (EDA)](#3-exploratory-data-analysis-eda)
+  - [Statistical Analysis](#4-statistical-analysis)
+  - [Correlation Analysis](#5-correlation-analysis)
+  - [Feature Engineering](#6-feature-engineering)
+  - [Domain-Specific Metrics](#7-domain-specific-metrics)
+
 ## What is Machine Learning
 
 Machine learning is merely the application of advanced statistics operations and formulas on large amounts of data. The result of this operation enables us to make a `prediction`; this prediction can be thought of like a function, which would take similar data as the training data for input, and output the statistically-arrived-at result based on the prediction made, considering all the data the model was trained on.
@@ -70,18 +99,32 @@ By leveraging machine learning techniques and training models on relevant datase
 
 In the field of machine learning, several domain knowledge and data analysis techniques are commonly employed to identify the most relevant features that have a significant impact on the dependent variable. Some of these techniques include:
 
-1. **Feature Selection**: Feature selection methods aim to identify the subset of features that are most informative and relevant to the dependent variable. These techniques help in reducing dimensionality and removing irrelevant or redundant features. Examples of feature selection methods include statistical tests, correlation analysis, information gain, and recursive feature elimination.
+###### 1. Feature Selection:
 
-2. **Domain Expertise**: Domain experts possess specific knowledge about the problem domain and can provide insights into which features are likely to be important. Their expertise helps in understanding the underlying relationships between variables and identifying relevant features based on their domain knowledge.
+Feature selection methods aim to identify the subset of features that are most informative and relevant to the dependent variable. These techniques help in reducing dimensionality and removing irrelevant or redundant features. Examples of feature selection methods include statistical tests, correlation analysis, information gain, and recursive feature elimination.
 
-3. **Exploratory Data Analysis (EDA)**: EDA involves visualizing and exploring the dataset to gain insights into the relationships between variables. Techniques such as scatter plots, histograms, box plots, and correlation matrices can help identify patterns, trends, and potential relationships between variables.
+###### 2. Domain Expertise:
 
-4. **Statistical Analysis**: Statistical techniques, such as hypothesis testing, analysis of variance (ANOVA), and chi-square tests, can be used to assess the significance of different variables in relation to the dependent variable. These tests help in identifying features that have a strong association or impact on the outcome of interest.
+Domain experts possess specific knowledge about the problem domain and can provide insights into which features are likely to be important. Their expertise helps in understanding the underlying relationships between variables and identifying relevant features based on their domain knowledge.
 
-5. **Correlation Analysis**: Correlation analysis measures the strength and direction of the relationship between variables. By calculating correlation coefficients, such as Pearson's correlation coefficient or Spearman's rank correlation coefficient, one can identify variables that are highly correlated with the dependent variable.
+###### 3. Exploratory Data Analysis (EDA):
 
-6. **Feature Engineering**: Feature engineering involves creating new features or transforming existing features to better represent the underlying relationships in the data. This process requires a deep understanding of the problem domain and the specific characteristics of the data. Domain knowledge can guide the creation of relevant features that capture important aspects of the problem.
+EDA involves visualizing and exploring the dataset to gain insights into the relationships between variables. Techniques such as scatter plots, histograms, box plots, and correlation matrices can help identify patterns, trends, and potential relationships between variables.
 
-7. **Domain-Specific Metrics**: In some domains, there are specific metrics or measures that are known to be important indicators of the dependent variable. For example, in the healthcare domain, certain clinical measurements or biomarkers may have a direct impact on the prediction of a disease outcome.
+###### 4. Statistical Analysis:
+
+Statistical techniques, such as hypothesis testing, analysis of variance (ANOVA), and chi-square tests, can be used to assess the significance of different variables in relation to the dependent variable. These tests help in identifying features that have a strong association or impact on the outcome of interest.
+
+###### 5. Correlation Analysis:
+
+Correlation analysis measures the strength and direction of the relationship between variables. By calculating correlation coefficients, such as Pearson's correlation coefficient or Spearman's rank correlation coefficient, one can identify variables that are highly correlated with the dependent variable.
+
+###### 6. Feature Engineering:
+
+Feature engineering involves creating new features or transforming existing features to better represent the underlying relationships in the data. This process requires a deep understanding of the problem domain and the specific characteristics of the data. Domain knowledge can guide the creation of relevant features that capture important aspects of the problem.
+
+###### 7. Domain-Specific Metrics:
+
+In some domains, there are specific metrics or measures that are known to be important indicators of the dependent variable. For example, in the healthcare domain, certain clinical measurements or biomarkers may have a direct impact on the prediction of a disease outcome.
 
 It's important to note that the choice of techniques and approaches for feature selection and identification of relevant features depends on the specific problem domain, available data, and the characteristics of the dataset. A combination of domain expertise, data analysis techniques, and iterative experimentation is often used to refine the set of features and improve the performance of machine learning models.
