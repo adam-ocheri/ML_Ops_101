@@ -124,6 +124,8 @@ X_train, X_test, y_test, y_train = train_test_split(X, y, test_size=0.2, random_
 
 Let us explore this code, step by step.
 
+---
+
 #### 1. Importing the libraries
 
 ```python
@@ -146,6 +148,8 @@ Here is a brief explanation of the purpose of each one of these libraries:
 - **Pandas - Manipulate Data:** Pandas is a powerful data manipulation and analysis library for Python. It provides easy-to-use data structures, such as DataFrames, for efficiently handling structured data. With Pandas, you can load, manipulate, filter, and transform data, perform operations like merging and grouping, handle missing data, and more. It is widely used for data preprocessing, data cleaning, exploratory data analysis, and data wrangling tasks.
 
 - **Scikit-Learn - Data & ML Ops:** Scikit-learn, often abbreviated as sklearn, is a popular machine learning library in Python. It provides a wide range of machine learning algorithms and tools for tasks such as classification, regression, clustering, dimensionality reduction, model selection, and evaluation. Scikit-learn is known for its user-friendly interface and extensive documentation, making it accessible to both beginners and experienced practitioners. It also integrates well with other scientific libraries, such as NumPy and Pandas, for seamless data processing and model building pipelines.
+
+---
 
 #### 2. Importing the Dataset - and Segregating the dependent variable from the independent variables
 
@@ -191,6 +195,8 @@ This means that for most of these cases:
 
 - **X-features** will be extracted by including all rows and columns except for the last one (`iloc[:, :-1]`).
 - **y-dependent** is extracted from the last column of each row, excluding all other columns (`iloc[:, -1]`).
+
+---
 
 #### 3. Split the dataset into training and testing sets
 
