@@ -252,6 +252,8 @@ Additionally, some entries are strings - which will need to be converted to nume
 
 _(Code is also available in `2-DataProcessingTools.py`)_
 
+---
+
 #### 1. Importing the Libraries
 
 We begin as always, with importing the necessary tools we will need to use to setup a basic Data Preprocessing pipeline.
@@ -274,6 +276,8 @@ from sklearn.model_selection import train_test_split        # Splitting function
 from sklearn.preprocessing import StandardScaler            # Rescale Train & Test data
 ```
 
+---
+
 #### 2. Importing the Dataset
 
 ```python
@@ -285,6 +289,8 @@ y = dataset.iloc[:, -1].values
 Here we first import the raw dataset, and then we are using the **DataFrame** object from `pandas` to extract different ranges from within this 2 Dimensional dataset.
 
 The `iloc` method from the pandas DataFrame object is an extremely flexible function that can take index members or even index ranges as arguments to easily filter a list of entries in 2-Dimensional tabular data. This method allows us to select rows and columns in a DataFrame using integer-based indexing.
+
+---
 
 #### 3. Taking Care of Missing Data
 
@@ -374,6 +380,8 @@ So as a general rule of thumb, we should most always impute all of the columns r
 (or estimate how much in % out of all training data the "infected" data takes up - and if it is a small percentage
 within a large dataset - we may simply delete these "infected" rows altogether).
 
+---
+
 #### 4. Encoding Categorical Data
 
 Oftentimes, a dataset may contain one or even several string columns in it.
@@ -422,12 +430,6 @@ Regime Type
 # TL;DR: Each sucks within a context of some scalar, measurable range!
 ```
 
----
-
-### ---------------------------------------
-
----
-
 ###### 4.1 Encoding the Independent Variable(s)
 
 Our example dataset, 'Data.csv', can be used with OneHotEncoding to encode the `Country` column, which has only 3 possible categories: Spain, France, and Germany.
@@ -458,10 +460,6 @@ We get this modified array:
     [0, 0, 1, 30, 49000, Yes]
 ]
 ```
-
----
-
----
 
 To Hot Encode our string categorical column, two classes from **SciKit-Learn** must be imported: the `ColumnTransformer` class from the `compose` module - and the `OneHotEncoder` class from the `preprocessing` module
 
@@ -537,6 +535,8 @@ This process involves two simple steps:
 2. Encode the data, fit and apply to the desired array
    - NOTE - This array does not need to be converted to a NumPy array, as previously seen with the `OneHotEncoder`, since the FitTransform method of the `LabelEncoder` takes in and returns a 1-dimensional array.
 
+---
+
 #### 5. Splitting the Data Into Train Sets & Test Sets
 
 ```python
@@ -562,6 +562,8 @@ The destructuring returned from this function must match the following order:
 
 `X_train, X_test, y_test, y_train = train_test_split(...)`
 
+---
+
 #### 6. Feature Scaling
 
 Feature Scaling is a procedure performed for the purpose of preventing one feature from dominating other features. It takes the Mean and the Standard Deviation
@@ -569,8 +571,6 @@ of numerical columns (scalar values only).
 The choice whether to apply Feature Scaling or not would depend on many factors, such as the dataset used, the numerical differences within AND across columns, the
 type of machine learning model we are going to use, and more.
 Some cases may not require feature scaling at all, while other cases may demand heavy scaling of the features.
-
----
 
 When a feature is dominated by an other feature, the dominated feature won't even be considered by the machine learning model, due to the dominating feature
 overpowering it, rendering it out of importance.
@@ -586,11 +586,13 @@ So for this reason, Feature Scaling must be applied after the "split".
 
 Later, once our model is trained, we would scale 'X_test' with the same mean and standard deviation produced by fitting 'X_train'.
 Meaning, something like:
-`                      model.fit(X_train)
-                        model.transform(X_train)
-                        model.transform(X_test)`
 
----
+```python
+...
+  model.fit(X_train)
+  model.transform(X_train)
+  model.transform(X_test)
+```
 
 There are two common methods of feature scaling: 1. Standardization (Z-score normalization):
 This method transforms the features so that they have a mean of zero and a standard deviation of one. It subtracts the mean value of the feature
@@ -632,15 +634,11 @@ X_train[:, 3:] = scaler.fit_transform(X_train[:, 3:])
 X_test[:, 3:] = scaler.transform(X_test[:, 3:])
 ```
 
----
-
-### ---------------------------------------
-
----
-
 For our example purposes, we use the Standardization technique to scale the numerical columns of our `X_train` dataset chunk.
 This can be broken down to 3 simple steps:
+
 **1)** Import the `StandardScaler` class from the **Scikit-Learn** `preprocessing` module, and instantiate a new object
+
 **2)** Apply the `fit_transform()` method to the target matrix on the desired range of columns that are ought to be scaled
 
 - `X_train[:, rangeStart.location : rangeEnd.location] = scaler.fit_transform(X_train[:, rangeStart.location : rangeEnd.location])`
@@ -654,8 +652,6 @@ This can be broken down to 3 simple steps:
 In order to make predictions that will be congruent with the way the model was trained, we need to apply the same scaler that was used on the training set
 onto the test set, so that we can get indeed the same transformation of the "Biased Perception" that was formed during the training, and sustain that "Biased
 Perception" while looking at new, unseen data.
-
----
 
 Do note, that the dummy variables we encode earlier in the preprocessing process don't need to be scaled - and as a general rule - pre-scaled values do not need to
 be included in the Feature Scaling.
@@ -685,24 +681,6 @@ performed earlier, is why it is so important to conform to the following format,
 
 This way, the preprocessing stage would be much simpler, as well as we would benefit a tidy dataset.
 
-### ---------------------------------------
-
 ---
-
----
-
----
-
----
-
----
-
----
-
----
-
----
-
-### ---------------------------------------
 
 ##### This concludes all the basic tools and concepts of Data Preprocessing we should be aware of when first starting out with ML!
