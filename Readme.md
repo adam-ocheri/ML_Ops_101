@@ -128,3 +128,219 @@ Feature engineering involves creating new features or transforming existing feat
 In some domains, there are specific metrics or measures that are known to be important indicators of the dependent variable. For example, in the healthcare domain, certain clinical measurements or biomarkers may have a direct impact on the prediction of a disease outcome.
 
 It's important to note that the choice of techniques and approaches for feature selection and identification of relevant features depends on the specific problem domain, available data, and the characteristics of the dataset. A combination of domain expertise, data analysis techniques, and iterative experimentation is often used to refine the set of features and improve the performance of machine learning models.
+
+## Rudimentary ML Concepts
+
+In the world of Machine Learning, there are many fundamental principles to be knowledgeable about across many different fields and domains, from algorithms to statistics and mathematics.
+
+#### Mean (Average)
+
+#### Fitting
+
+#### Transforming
+
+#### Supervised Learning
+
+...
+
+#### Unsupervised Learning
+
+...
+
+#### Semi-Supervised Learning
+
+...
+
+#### Reinforcement Learning
+
+...
+
+#### Classification
+
+...
+
+#### Regression
+
+...
+
+#### Clustering
+
+...
+
+#### Dimensionality Reduction
+
+...
+
+#### Feature Extraction
+
+...
+
+#### Feature Selection
+
+...
+
+#### Feature Engineering
+
+...
+
+#### Overfitting
+
+...
+
+#### Underfitting
+
+...
+
+#### Bias-Variance Tradeoff
+
+...
+
+#### Cross-Validation
+
+...
+
+#### Validation Set
+
+...
+
+#### Hyperparameters
+
+...
+
+#### Model Evaluation
+
+...
+
+#### Precision
+
+...
+
+#### Recall
+
+...
+
+#### F1 Score
+
+...
+
+#### Accuracy
+
+...
+
+#### Confusion Matrix
+
+...
+
+#### Decision Tree
+
+...
+
+#### Random Forest
+
+...
+
+#### Support Vector Machines (SVM)
+
+...
+
+#### Naive Bayes
+
+...
+
+#### Neural Networks
+
+...
+
+#### Gradient Descent
+
+...
+
+#### Backpropagation
+
+...
+
+#### Regularization
+
+...
+
+#### L1 Regularization (Lasso)
+
+...
+
+#### L2 Regularization (Ridge)
+
+...
+
+#### Ensemble Learning
+
+...
+
+#### Bagging
+
+...
+
+#### Boosting
+
+...
+
+#### AdaBoost
+
+...
+
+#### XGBoost
+
+...
+
+#### K-nearest Neighbors (KNN)
+
+...
+
+#### Principal Component Analysis (PCA)
+
+...
+
+#### K-means Clustering
+
+...
+
+#### Mean Shift Clustering
+
+...
+
+#### Gaussian Mixture Models (GMM)
+
+...
+
+#### Natural Language Processing (NLP)
+
+...
+
+#### Recommender Systems
+
+...
+
+#### Deep Learning
+
+...
+
+#### Convolutional Neural Networks (CNN)
+
+...
+
+#### Recurrent Neural Networks (RNN)
+
+...
+
+#### Generative Adversarial Networks (GANs)
+
+...
+
+"""
+Supervised vs. Unsupervised - what's the Difference?
+
+Coefficients
+
+WTF are hyperparameters
+
+TF is the Epsilon-Greedy Strategy
+"""
