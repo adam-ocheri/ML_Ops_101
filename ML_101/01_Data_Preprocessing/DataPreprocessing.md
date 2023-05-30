@@ -52,6 +52,10 @@ As mentioned earlier, feature scaling techniques like standardization or normali
 
 By performing these preprocessing steps, the data is transformed into a clean, consistent, and well-prepared format, ready for analysis, visualization, or machine learning tasks. Data preprocessing helps improve the quality of the results, reduces bias, and enhances the overall reliability of data-driven analyses and models.
 
+---
+
+---
+
 ## Feature Scaling
 
 Feature scaling is a data preprocessing technique used in machine learning to standardize or normalize the numerical features of a dataset. It involves transforming the values of the features to a specific range or distribution. The goal of feature scaling is to ensure that all features have similar scales, which can be beneficial for certain machine learning algorithms.
@@ -83,6 +87,10 @@ Normalization maps the data to a fixed range, preserving the relative relationsh
 Both standardization and normalization are effective techniques for feature scaling, and the choice between them depends on the specific requirements of your problem and the characteristics of your data.
 
 By applying feature scaling, you can improve the performance and convergence of certain machine learning algorithms, such as those based on gradient descent optimization, and ensure that the features contribute more fairly to the model's training process.
+
+---
+
+---
 
 ## Basic Data Preprocessing
 
@@ -213,6 +221,10 @@ from sklearn.model_selection import train_test_split
 ...
 X_train, X_test, y_test, y_train = train_test_split(X, y, test_size=0.2, random_state=0)
 ```
+
+---
+
+---
 
 ## Intermediate Data Preprocessing
 
