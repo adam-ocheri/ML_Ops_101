@@ -665,6 +665,8 @@ This can be broken down to 3 simple steps:
 
 - `X_test[:, rangeStart.location : rangeEnd.location] = scaler.transform(X_test[:, rangeStart.location : rangeEnd.location])`
 
+---
+
 ###### Regarding step #3:
 
 In order to make predictions that will be congruent with the way the model was trained, we need to apply the same scaler that was used on the training set
@@ -701,4 +703,6 @@ This way, the preprocessing stage would be much simpler, as well as we would ben
 
 ---
 
-##### This concludes all the basic tools and concepts of Data Preprocessing we should be aware of when first starting out with ML!
+---
+
+### This concludes all the basic tools and concepts of Data Preprocessing we should be aware of when first starting out with ML!
