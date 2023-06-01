@@ -1,52 +1,71 @@
 # Data Preprocessing
 
-- [Data Preprocessing Overview](#data-preprocessing)
+- [Data Preprocessing Basic Concepts](#data-preprocessing-basic-concepts)
 
-  - [Data Cleaning](#1-data-cleaning)
-  - [Data Integration](#2-data-integration)
-  - [Data Transformation](#3-data-transformation)
-  - [Feature Selection and Dimensionality Reduction](#4-feature-selection-and-dimensionality-reduction)
-  - [Data Discretization](#5-data-discretization)
-  - [Data Splitting](#6-data-splitting)
-  - [Data Normalization](#7-data-normalization)
+  - [Data Preprocessing Process Overview](#preprocessing-steps-overview)
 
-- [Feature Scaling](#feature-scaling)
-  - [Standardization](#1-standardization-z-score-normalization)
-  - [Normalization](#2-normalization-min-max-scaling)
+    - [Data Cleaning](#1-data-cleaning)
+    - [Data Integration](#2-data-integration)
+    - [Data Transformation](#3-data-transformation)
+    - [Feature Selection and Dimensionality Reduction](#4-feature-selection-and-dimensionality-reduction)
+    - [Data Discretization](#5-data-discretization)
+    - [Data Splitting](#6-data-splitting)
+    - [Data Normalization](#7-data-normalization)
+
+  - [Feature Scaling](#feature-scaling)
+
+    - [Standardization](#1-standardization-z-score-normalization)
+    - [Normalization](#2-normalization-min-max-scaling)
+
 - [Basic Data Preprocessing](#basic-data-preprocessing)
+
   - [1. Importing the libraries](#1-importing-the-libraries)
   - [2. Importing Dataset & Segregating the dependent variable from the independent variables](#2-importing-the-dataset---and-segregating-the-dependent-variable-from-the-independent-variables)
   - [3. Split the dataset into training and testing sets](#3-split-the-dataset-into-training-and-testing-sets)
 
+- [Intermediate Data Preprocessing](#intermediate-data-preprocessing)
+  - [Importing the Libraries](#1-importing-the-libraries-1)
+  - [Importing the Dataset](#2-importing-the-dataset)
+  - [Taking Care of Missing Data](#3-taking-care-of-missing-data)
+  - [Encoding Categorical Data](#4-encoding-categorical-data)
+    - [Encoding the Independent Variable(s)](#41-encoding-the-independent-variables)
+    - [Encoding the Dependant Variable](#42-encoding-the-dependant-variable)
+  - [Splitting the Dataset](#5-splitting-the-data-into-train-sets--test-sets)
+  - [Feature Scaling](#6-feature-scaling)
+
+## Data Preprocessing Basic Concepts
+
 Data preprocessing is an essential step in the data analysis and machine learning pipeline. It refers to the process of preparing and transforming raw data into a clean, structured, and suitable format for further analysis or machine learning algorithms. The quality of the preprocessing greatly affects the accuracy and effectiveness of the subsequent analysis or modeling tasks.
+
+#### Preprocessing Steps Overview
 
 Data preprocessing typically involves several steps, which may vary depending on the specific dataset and the goals of the analysis. Here are some common data preprocessing techniques:
 
-#### 1. Data Cleaning:
+##### 1. Data Cleaning:
 
 This step involves handling missing data, dealing with outliers, and correcting any inconsistencies or errors in the dataset. Missing data can be imputed or removed, outliers can be detected and handled appropriately, and errors can be corrected through techniques such as data validation or data profiling.
 
-#### 2. Data Integration:
+##### 2. Data Integration:
 
 In many cases, data comes from multiple sources or in different formats. Data integration involves combining data from various sources and resolving any inconsistencies or conflicts in data structures, variable naming conventions, or data types.
 
-#### 3. Data Transformation:
+##### 3. Data Transformation:
 
 Data transformation aims to convert the data into a suitable format for analysis. This may involve scaling or normalizing numerical variables, encoding categorical variables, handling date and time formats, or transforming skewed distributions through techniques like logarithmic or power transformations.
 
-#### 4. Feature Selection and Dimensionality Reduction:
+##### 4. Feature Selection and Dimensionality Reduction:
 
 In datasets with a large number of features, feature selection techniques can be applied to identify the most relevant and informative features. Dimensionality reduction methods, such as principal component analysis (PCA) or t-distributed stochastic neighbor embedding (t-SNE), can be used to reduce the number of variables while preserving important information.
 
-#### 5. Data Discretization:
+##### 5. Data Discretization:
 
 Data discretization involves converting continuous variables into categorical or ordinal variables by dividing them into bins or intervals. This can be useful for certain types of analyses or algorithms that require categorical or discrete input.
 
-#### 6. Data Splitting:
+##### 6. Data Splitting:
 
 Before applying machine learning algorithms, the dataset is often split into training and testing subsets. This allows the model to be trained on a portion of the data and evaluated on unseen data to assess its performance.
 
-#### 7. Data Normalization:
+##### 7. Data Normalization:
 
 As mentioned earlier, feature scaling techniques like standardization or normalization are applied to bring the features to a consistent scale, reducing the impact of varying scales on the analysis or modeling process.
 
@@ -56,7 +75,7 @@ By performing these preprocessing steps, the data is transformed into a clean, c
 
 ---
 
-## Feature Scaling
+#### Feature Scaling
 
 Feature scaling is a data preprocessing technique used in machine learning to standardize or normalize the numerical features of a dataset. It involves transforming the values of the features to a specific range or distribution. The goal of feature scaling is to ensure that all features have similar scales, which can be beneficial for certain machine learning algorithms.
 
@@ -612,11 +631,9 @@ Meaning, something like:
   model.transform(X_test)
 ```
 
-There are two common methods of feature scaling: 1. Standardization (Z-score normalization):
-This method transforms the features so that they have a mean of zero and a standard deviation of one. It subtracts the mean value of the feature
-from each data point and divides by the standard deviation. The formula for standardization is:
+There are two common methods of feature scaling:
 
-1. Standardization (Z-score normalization):
+1. **Standardization** (Z-score normalization):
 
    - This method transforms the features so that they have a mean of zero and a standard deviation of one. It subtracts the mean value of the feature
      from each data point and divides by the standard deviation. The formula for standardization is:
@@ -628,7 +645,7 @@ from each data point and divides by the standard deviation. The formula for stan
 
      Standardization makes the data centered around zero, with a standard deviation of one.
 
-2. Normalization (Min-Max scaling):
+2. **Normalization** (Min-Max scaling):
 
    - This method scales the features to a specific range, typically between 0 and 1. It subtracts the minimum value of the feature from each data pointand divides by the range (maximum value minus minimum value). The formula for normalization is:
 
@@ -673,8 +690,7 @@ In order to make predictions that will be congruent with the way the model was t
 onto the test set, so that we can get indeed the same transformation of the "Biased Perception" that was formed during the training, and sustain that "Biased
 Perception" while looking at new, unseen data.
 
-Do note, that the dummy variables we encode earlier in the preprocessing process don't need to be scaled - and as a general rule - pre-scaled values do not need to
-be included in the Feature Scaling.
+Do note, that the dummy variables we encode earlier in the Data Preprocessing process don't need to be scaled - and as a general rule - pre-scaled values do not need to be included in the Feature Scaling.
 For this reason, we exclude any encoded dummy variables, pre-scaled variables or any undesired columns from the feature scaling.
 Since our X matrix should look like this at this point;
 

@@ -129,9 +129,180 @@ In some domains, there are specific metrics or measures that are known to be imp
 
 It's important to note that the choice of techniques and approaches for feature selection and identification of relevant features depends on the specific problem domain, available data, and the characteristics of the dataset. A combination of domain expertise, data analysis techniques, and iterative experimentation is often used to refine the set of features and improve the performance of machine learning models.
 
-## Rudimentary ML Concepts
+## ML Course Sections Summary
 
 In the world of Machine Learning, there are many fundamental principles to be knowledgeable about across many different fields and domains, from algorithms to statistics and mathematics.
+
+#### Regression
+
+Regression is a supervised learning technique used for predicting continuous numerical values based on input features. It aims to establish a functional relationship between the independent variables (input features) and the dependent variable (output value) by fitting a regression model to the training data.
+
+**Intuitive Description**:
+
+Regression is like drawing a line or curve through scattered points on a graph. It helps us understand the relationship between the input variables and the output variable. With regression, we can make predictions for new input values based on the learned patterns from the training data.
+
+**Technical Explanation**:
+
+In regression, the goal is to find a mathematical function that best represents the relationship between the input features and the output variable. The regression model takes the form:
+
+```python
+y = f(x1, x2, ..., xn) + ε
+```
+
+where `y` represents the output variable, `x1, x2, ..., xn` represent the input features, `f()` represents the regression function, and `ε` represents the error term. The regression function `f()` can be linear or nonlinear, depending on the complexity of the relationship.
+
+To find the best fit, regression models estimate the coefficients (parameters) of the regression function based on the given training data. The common objective is to minimize the difference between the predicted values and the actual values.
+
+**Foundational Mathematical Formula**:
+
+The most basic form of regression is simple linear regression, which assumes a linear relationship between the input feature x and the output variable y. The formula for simple linear regression is:
+
+```python
+y = β0 + β1 * x + ε
+```
+
+where `y` is the dependent variable, `x` is the independent variable, `β0` is the y-intercept, `β1` is the slope (coefficient), and `ε` is the error term.
+
+The coefficients β0 and β1 are estimated using various methods such as ordinary least squares (OLS) or gradient descent.
+
+**Code Example**:
+
+Here's a basic code example using scikit-learn's LinearRegression class to perform simple linear regression:
+
+```python
+from sklearn.linear_model import LinearRegression
+
+# Create a linear regression model
+model = LinearRegression()
+
+# Prepare the training data
+X_train = [[1], [2], [3], [4], [5]]  # Input feature
+y_train = [2, 4, 6, 8, 10]  # Output variable
+
+# Fit the model to the training data
+model.fit(X_train, y_train)
+
+# Make predictions for new input
+X_test = [[6], [7], [8]]  # New input feature
+y_pred = model.predict(X_test)
+
+print(y_pred)  # Output: [12. 14. 16.]
+```
+
+In this example, we create a linear regression model using the `LinearRegression` class. We then provide the training data consisting of input features (`X_train`) and corresponding output values (`y_train`). The model is fitted to the training data using the `fit()` method.
+
+After training, we can use the model to make predictions for new input values (X_test) using the predict() method. The predicted output values (y_pred) are printed, indicating the model's estimation for the given input.
+
+Note that this example demonstrates simple linear regression, but regression techniques can be extended to handle more complex relationships and multiple input features using various algorithms and methods.
+
+###### Related Terms
+
+- **Linear Regression**:
+  Linear regression is a statistical modeling technique used to establish a linear relationship between a dependent variable and one or more independent variables. It assumes a linear equation of the form `y = mx + b`, where `y` is the dependent variable, `x` is the independent variable, `m` is the slope, and `b` is the y-intercept. The goal of linear regression is to find the best-fitting line that minimizes the difference between the observed data points and the predicted values.
+
+- **Non-Linear Regression**:
+  Non-linear regression is a regression analysis technique used when the relationship between the dependent variable and independent variables cannot be adequately described by a linear equation. In non-linear regression, the relationship is modeled using non-linear functions, such as exponential, logarithmic, polynomial, or trigonometric functions. The parameters of the non-linear function are estimated to fit the data and make predictions.
+
+- **Y-intercept**:
+  The y-intercept, often denoted as `b` or `β0`, is a constant term in the linear regression equation that represents the predicted value of the dependent variable when all independent variables are zero. Geometrically, it is the point where the regression line intersects the y-axis. The `y-intercept` provides an initial starting point for the regression line and contributes to the overall linear relationship between the variables.
+
+- **Coefficients / Slope**:
+  In the context of regression, coefficients refer to the parameters that determine the relationship between the independent variables and the dependent variable. In linear regression, the coefficient, often denoted as `m` or `β1`, represents the slope of the line. It indicates the change in the dependent variable for a unit change in the independent variable. The coefficient determines the direction and magnitude of the relationship between the variables. In multiple linear regression, there is a coefficient associated with each independent variable.
+
+- **Error Term**:
+  The error term, often denoted as ε or residuals, represents the unexplained variation or the discrepancy between the predicted values and the actual values of the dependent variable. It accounts for the factors that are not captured by the regression model. The goal of regression analysis is to minimize the sum of squared errors or residuals, indicating the goodness of fit between the observed data and the regression line.
+
+- **Ordinary Least Squares (OLS)**:
+  Ordinary Least Squares is a method used to estimate the coefficients in linear regression models. It aims to find the best-fitting line by minimizing the sum of squared residuals between the observed data and the predicted values. OLS estimates the coefficients that provide the smallest sum of squared residuals, making it a popular and widely used method for linear regression. It provides closed-form solutions for the coefficient estimates, making computations efficient.
+
+- **Gradient Descent**:
+  Gradient descent is an optimization algorithm commonly used in machine learning, including regression. It iteratively updates the model parameters to minimize an objective function, often represented by an error or loss function. In regression, gradient descent is used to estimate the optimal values for the coefficients that minimize the sum of squared errors. The algorithm starts with initial estimates for the coefficients and iteratively adjusts them in the direction of steepest descent of the error surface. The process continues until the algorithm converges to the optimal values or reaches a predefined stopping criterion. Gradient descent can handle both linear and non-linear regression problems. It is particularly useful for large datasets or complex models where closed-form solutions like OLS are not feasible.
+
+---
+
+#### Classification
+
+**Intuitive Description**:
+
+Classification is a machine learning task that involves categorizing or assigning predefined labels or classes to input data based on their features. It aims to learn a decision boundary or a classification rule that can accurately predict the class of unseen instances. Classification is used in various applications, such as spam detection, image recognition, sentiment analysis, and disease diagnosis. The goal is to train a model that can generalize well and accurately classify new data points into their respective classes.
+
+**Technical Explanation**:
+
+In classification, the task is to build a model that can learn the relationship between input features and corresponding class labels. The model is trained on a labeled dataset, where each data instance has a set of input features and a known class label. The process involves extracting relevant features, selecting an appropriate algorithm, and training the model using the labeled data. The trained model can then be used to predict the class labels of unseen instances.
+
+The most common classification algorithms include logistic regression, support vector machines (SVM), decision trees, random forests, naive Bayes, and k-nearest neighbors (KNN). These algorithms employ various techniques to learn the decision boundaries, such as optimizing parameters, constructing decision trees, or estimating probabilities. The choice of algorithm depends on the characteristics of the data and the specific requirements of the problem.
+
+**Mathematical Formula and Calculations**:
+
+In binary classification, where there are two classes (e.g., positive and negative), a common approach is logistic regression. It models the relationship between the input features X and the probability of belonging to a particular class Y=1 using the logistic function, also known as the sigmoid function:
+
+```python
+p(Y=1 | X) = 1 / (1 + exp(-z))
+```
+
+where z is the linear combination of the input features weighted by coefficients:
+
+```javascript
+z = b0 + b1*X1 + b2*X2 + ... + bn*Xn
+```
+
+1. `p(Y=1 | X)`: This represents the probability of the response variable Y taking the value 1 given the input features X. In logistic regression, we are interested in estimating the probability of a binary outcome (e.g., presence or absence of an event) based on the given features.
+
+2. `z`: The variable z is the linear combination of the input features X, weighted by coefficients. It represents the linear part of the logistic regression equation. Each feature X is multiplied by its corresponding coefficient b and then summed up. The intercept term b0 is added as well. The resulting value z is the input to the sigmoid function.
+
+3. `b0, b1, b2, ..., bn`: These are the coefficients or weights associated with each feature X. They represent the impact or contribution of each feature on the outcome variable Y. The coefficients are estimated during the training process of the logistic regression model.
+
+4. `X1, X2, ..., Xn`: These are the input features or independent variables. Each feature represents a different aspect or attribute of the data that may influence the outcome variable. The logistic regression model learns the relationship between these features and the probability of the outcome.
+
+5. `exp(-z)`: The exp function denotes the exponential function, which raises the mathematical constant e (approximately 2.71828) to the power of -z. This is a crucial step in logistic regression as it transforms the linear combination z into a range between 0 and 1.
+
+6. `1 / (1 + exp(-z))`: This expression represents the sigmoid or logistic function. It takes the transformed z value and maps it to a probability value between 0 and 1. The logistic function ensures that the estimated probability stays within this valid range. When z is large and positive, the probability tends toward 1, and when z is large and negative, the probability tends toward 0.
+
+The logistic regression model learns the optimal values for the coefficients b0, b1, b2, ..., bn during the training process. The objective is to find the coefficients that maximize the likelihood of the observed data. This is typically done using optimization techniques such as maximum likelihood estimation or gradient descent.
+
+During the training process, the logistic regression model adjusts the coefficients to minimize the difference between the predicted probabilities and the actual labels in the training data. The model learns to find the optimal decision boundary that separates the two classes by assigning higher probabilities to instances of one class and lower probabilities to instances of the other class.
+
+Other classification algorithms may have different mathematical formulations and calculations. For example, support vector machines (SVM) aim to find a hyperplane that maximally separates the classes in a high-dimensional feature space, while decision trees use recursive partitioning to create hierarchical decision rules based on feature thresholds.
+
+**Code Example**:
+
+Here's a basic code example using scikit-learn's logistic regression classifier:
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load the dataset
+X, y = load_dataset()
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create a logistic regression classifier
+clf = LogisticRegression()
+
+# Train the classifier
+clf.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred = clf.predict(X_test)
+
+# Evaluate the accuracy of the classifier
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+```
+
+In this example, the dataset is split into training and testing sets using the train_test_split function. Then, a logistic regression classifier is created using LogisticRegression class. The classifier is trained on the training data using the fit method. Predictions are made on the test set using the predict method, and the accuracy of the predictions is evaluated using the accuracy_score function.
+
+---
+
+---
+
+---
+
+---
 
 #### Mean (Average)
 

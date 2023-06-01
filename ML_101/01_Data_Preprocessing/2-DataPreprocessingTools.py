@@ -212,7 +212,7 @@ ct = ColumnTransformer(
     transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
 X = np.array(ct.fit_transform(X))
 """
-To Hot Encode our string categorical columns, two classes from **SciKit-Learn** must be imported:
+To Hot Encode our string categorical column, two classes from **SciKit-Learn** must be imported:
     - the `ColumnTransformer` class from the `compose` module
     - the `OneHotEncoder` class from the `preprocessing` module
 
