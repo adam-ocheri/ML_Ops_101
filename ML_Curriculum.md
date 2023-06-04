@@ -1,6 +1,7 @@
 # ML Course Sections Summary
 
-In the world of Machine Learning, there are many fundamental principles to be knowledgeable about across many different fields and domains, from algorithms to statistics and mathematics.
+In the world of Machine Learning, there are many fundamental principles to be knowledgeable about across many different fields and domains, from algorithms to s\*tatistics and mathematics.
+/
 
 ## ML Curriculum
 

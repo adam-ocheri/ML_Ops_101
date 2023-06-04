@@ -158,8 +158,6 @@ The median is useful in situations where the dataset may contain outliers or is 
 
 ## Mode
 
-Certainly! Here's a detailed explanation of the mode and a basic mathematical example in a code block:
-
 The mode is a statistical measure that represents the most frequently occurring value(s) in a dataset. It is used to identify the central tendency or the most common value(s) in a distribution.
 
 To calculate the mode, we need to find the value(s) that occur(s) with the highest frequency. In case there are multiple values with the same highest frequency, the dataset is considered multimodal, and all the values with the highest frequency are considered modes. If there is no value that occurs more frequently than others, the dataset is considered amodal, and there is no mode.
