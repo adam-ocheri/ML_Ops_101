@@ -47,6 +47,41 @@ Extensions of linear regression include polynomial regression, where higher-orde
 
 It's worth noting that linear regression has its limitations. It assumes a linear relationship between the variables, which may not always hold in real-world scenarios. Additionally, linear regression is sensitive to outliers and can be affected by influential data points. In such cases, more advanced regression techniques or data transformations may be necessary.
 
+Here is a theoretical code demonstration of the math involved with a linear regression:
+
+```python
+import numpy as np
+
+X = np.array([2, 4, 6, 8, 10])
+y = np.array([5, 10, 15, 20, 25])
+
+# Calculate the means
+X_mean = np.mean(X)
+y_mean = np.mean(y)
+
+# Calculate the differences from the means
+X_diff = X - X_mean
+y_diff = y - y_mean
+
+# Calculate the slope coefficient (β1)
+numerator = np.sum(X_diff * y_diff)
+denominator = np.sum(X_diff ** 2)
+b1 = numerator / denominator
+
+# Calculate the y-intercept (β0)
+b0 = y_mean - b1 * X_mean
+
+print("The slope coefficient (β1) is:", b1)
+print("The y-intercept (β0) is:", b0)
+
+# Use the resulting linear regression to predict the outcome for new unseen data
+
+X_test = 42
+y_predicted = b0 + b1 * X_test
+
+print("Predicted y for X =", X_test, "is:", y_predicted)
+```
+
 #### Simple Linear Regression
 
 The process of Linear Regression involves the following steps:
@@ -284,13 +319,9 @@ Let's say that we have a dataset that documents a Potatoes Farm harvest. `X` is 
 
 Even this simple case has many potential regression lines. It could be either one of these lines, and more:
 
-![TestGraph](01-LinearRegression/imgs/rl1.png)
-![TestGraph](01-LinearRegression/imgs/rl2.png)
-![TestGraph](01-LinearRegression/imgs/rl3.png)
-![TestGraph](01-LinearRegression/imgs/rl4.png)
-![TestGraph](01-LinearRegression/imgs/rl5.png)
+![TestGraph](01-LinearRegression/imgs/potentials.png)
 
-Each one of these potential lines can be the best regression line to describe the **change** happening in the data.
+Each one of these potential lines might be the best regression line to describe the **change** happening in the data.
 However, there can only be 1 "best" regression line - and to find it, each potential line needs to be measured. The line with the smallest error residuals will be picked as the best line.
 
 For the simplicity of our example, we are using only 1 potential line for illustrative purposes.
@@ -310,7 +341,7 @@ The difference between `yi` and `ȳi` is the Residual - the Error Term. The lowe
 SSR = Σ(y - ŷ)^2     # Sum Squared Residuals
 ```
 
-The "best" residuals are obtained when the sum of the squares of the residuals is minimized. for example:
+The "best" residuals are obtained when the sum of the squares of the residuals is minimized. We basically measure the error outcome of each line, and minimize them to get back the line with the smallest error possible. for example:
 
 ```r
 SSR = MIN(Σ(y0 - ŷ0)^2, Σ(y1 - ŷ1)^2, Σ(y2 - ŷ3)^2, ...)
@@ -326,11 +357,11 @@ The OLS method or other appropriate techniques are used to estimate the coeffici
 
 The values of the coefficients, including the slope coefficient, are estimated based on the data during the model fitting process using the OLS method. The OLS method calculates the coefficients by minimizing the sum of squared residuals. Each observation in the dataset contributes to the estimation of the coefficients.
 
-The estimation process involves finding the values of the coefficients (often denoted as β1, β2, β3, etc.) that minimize the sum of squared differences between the observed values of the dependent variable and the predicted values from the linear regression model.
+The estimation process involves finding the values of the coefficients (often denoted as `β1`, `β2`, `β3`, etc...) that minimize the sum of squared differences between the observed values of the dependent variable and the predicted values from the linear regression model.
 
 The OLS estimation algorithm takes into account all the data points and iteratively adjusts the coefficients until it finds the values that result in the smallest sum of squared residuals. This estimation process ensures that the linear regression model captures the overall relationship between the independent variable(s) and the dependent variable in the best possible way.
 
-The formula to estimate the slope coefficient (β1) in linear regression is:
+The formula to estimate the slope coefficient (`β1`) in linear regression is:
 
 ```r
 β1 = ∑((xi - x̄)(yi - ȳ)) / ∑((xi - x̄)^2)
@@ -363,7 +394,7 @@ The estimation of coefficients in OLS is achieved by minimizing the sum of squar
 ŷ = β0 + β1x1 + β2x2 + ... + βnxn
 ```
 
-Here, `β0`, `β1`, `β2`, ..., βn are the coefficients to be estimated, and `x1`, `x2`, `...`, `xn` are the independent variables. The sum of squared residuals is given by:
+Here, '`β0`, `β1`, `β2`, `...`, `βn`' are the coefficients to be estimated, and '`x1`, `x2`, `...`, `xn`' are the independent variables. The sum of squared residuals is given by:
 
 ```r
 SSR = Σ(y - ŷ)^2     # Sum Squared Residuals

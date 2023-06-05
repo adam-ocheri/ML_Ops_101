@@ -71,7 +71,8 @@ Each variable here plays a role on influencing the outcome "Y", and it is import
 
     # **Slope Coefficient**:
         The value of the `Slope Coefficient` represents the amount of change in the Target Variable, for every integral change (+-1.0) of the Independent Variables,
-        the `X-Features Matrix`. It quantifies the relationship between `y`, the dependent variable, for a unit change in the independent variable, `X`.
+        the `X-Features Matrix`. 
+        It quantifies the relationship between `y`, the dependent variable, for a unit change in the independent variable, `X`.
         In a simple linear regression model with one independent variable, the slope coefficient is a constant value.
 
         The value of the slope coefficient is estimated based on the data during the model fitting process. It is not predetermined but is determined by finding the 
@@ -92,7 +93,10 @@ Each variable here plays a role on influencing the outcome "Y", and it is import
         In multiple linear regression, there is a coefficient associated with each independent variable.
 
     # **Error Term**:
-         
+      The difference between `yi` and `ȳi` is the Residual - the Error Term. The lower this value is across all `y` and `ȳ` points (the Sum [∑]), the more 
+      likely this line could be considered as the best regression line - and in fact, the best regression line would be the line with the lowest possible residuals:
+        - SSR = Σ(y - ŷ)^2     # Sum Squared Residuals
+ 
 """
 
 """
@@ -127,8 +131,32 @@ Remember that the actual values of the slope coefficient and the intercept (5000
 on the specific dataset used for training. The example above is just a hypothetical illustration to demonstrate the concept.
 """
 
-"""
-* Ordinary Last Squares (OLS)
+#! - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# * Manual Linear Regression Calculations
 
+# ---- Extract the independent variable (YearsExperience)
+x = dataset["YearsExperience"].values
 
-"""
+# ---- Extract the dependent variable (Salary)
+y = dataset["Salary"].values
+
+# ---- Calculate the means
+x_mean = np.mean(x)
+y_mean = np.mean(y)
+
+# ---- Calculate the slope coefficient (b1)
+SumOfAllDeviations_numerator = np.sum((x - x_mean) * (y - y_mean))
+SumSquaredResiduals_denominator = np.sum((x - x_mean) ** 2)
+b1 = SumOfAllDeviations_numerator / SumSquaredResiduals_denominator
+
+# ---- Calculate the y-intercept (b0)
+b0 = y_mean - b1 * x_mean
+
+# ---- Use the resulting linear regression to predict the outcome `y` for new unseen data
+X_test = 42
+y_predicted = b0 + b1 * X_test + SumSquaredResiduals_denominator
+
+# ---- Print results
+print("The y-intercept (β0) is:", b0)
+print("The slope coefficient (β1) is:", b1)
+print("Predicted y for X =", X_test, "is:", y_predicted)
